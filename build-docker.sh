@@ -21,7 +21,9 @@ if ! ${DOCKER} ps >/dev/null; then
 fi
 
 CONFIG_FILE=""
-if [ -f "${DIR}/config" ]; then
+if [ ! -z "$1" ]; then
+  CONFIG_FILE=$1
+elif [ -f "${DIR}/config" ]; then
 	CONFIG_FILE="${DIR}/config"
 fi
 

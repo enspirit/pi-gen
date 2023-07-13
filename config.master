@@ -1,0 +1,19 @@
+IMG_NAME=easycast
+RELEASE=bullseye
+LOCALE_DEFAULT=fr_BE.UTF-8
+TARGET_HOSTNAME=easycast-station
+
+TIMEZONE_DEFAULT=Europe/Brussels
+
+FIRST_USER_NAME=easycast
+FIRST_USER_PASS=changemeplease
+DISABLE_FIRST_BOOT_USER_RENAME=1
+
+WPA_COUNTRY=BE
+
+ENABLE_SSH=1
+
+STAGE_LIST="stage0 stage1 stage2 stage3 stage-ezc-base stage-ezc-station stage-ezc-master"
+USE_QCOW2=1
+
+USE_QEMU=1

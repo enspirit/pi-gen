@@ -1,0 +1,10 @@
+country_code=BE
+interface=wlan0
+ssid=easycast
+hw_mode=${HW_MODE}
+channel=${CHANNEL}
+wpa=2
+wpa_passphrase=easypass
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP

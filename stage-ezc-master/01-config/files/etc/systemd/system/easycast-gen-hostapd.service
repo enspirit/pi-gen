@@ -1,0 +1,11 @@
+[Unit]
+Description=Generate hostapd config files for current device
+DefaultDependencies=no
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/easycast-gen-hostapd
+
+[Install]
+WantedBy=sysinit.target

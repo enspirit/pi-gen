@@ -1,4 +1,4 @@
-@ #!/bin/sh -e
+#!/bin/sh -e
 #
 # rc.local
 #
@@ -15,8 +15,9 @@
 _SERIAL=$(cat /sys/firmware/devicetree/base/serial-number | tail -c 8) || true
 if [ "$_SERIAL" ]; then
   printf "My serial number is %s\n" "$_SERIAL"
-  hostname easycast-$_SERIAL.local
-  hostnamectl set-hostname easycast-$_SERIAL.local
+  hostname easycast-$_SERIAL
+  hostnamectl set-hostname easycast-station-$_SERIAL
+  sed -i "s/127.0.1.1.*/127.0.1.1 easycast-station-$_SERIAL/" /etc/hosts
 fi
 
 # Print the IP address

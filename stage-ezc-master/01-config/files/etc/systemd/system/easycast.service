@@ -1,0 +1,14 @@
+[Unit]
+Description=Easycast Server
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=easycast
+WorkingDirectory=/home/easycast/easycast
+ExecStart=/home/easycast/easycast/bin/start
+EnvironmentFile=/etc/environment
+
+[Install]
+WantedBy=multi-user.target

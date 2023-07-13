@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "ya-dns-sd": "^2.0.0"
+  }
+}

@@ -1,4 +1,4 @@
-@ #!/bin/sh -e
+#!/bin/sh -e
 #
 # rc.local
 #
@@ -12,17 +12,18 @@
 # By default this script does nothing.
 
 # Get the (short) serial number
-_SERIAL=$(cat /sys/firmware/devicetree/base/serial-number | tail -c 8) || true
-if [ "$_SERIAL" ]; then
-  printf "My serial number is %s\n" "$_SERIAL"
-  hostname easycast-$_SERIAL.local
-  hostnamectl set-hostname easycast-$_SERIAL.local
-fi
-
 # Print the IP address
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
+
+# Make sure the master node has the correct hostname
+hostname easycast-master
+hostnamectl set-hostname easycast-master
+sed -i 's/127.0.1.1.*/127.0.1.1 easycast-master/' /etc/hosts
+
+# Firewall
+iptables-restore < /etc/iptables.ipv4.nat
 
 exit 0

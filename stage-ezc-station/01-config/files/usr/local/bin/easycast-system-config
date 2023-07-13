@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo "Easycast Magic System Configurator started"
+
+if [ -e /boot/wifi ]; then
+  echo "Force enabling WiFi interface"
+  cp /etc/network/wlan /etc/network/interfaces.d/wlan
+else
+  echo "Force disabling WiFi interface"
+  rm -f /etc/network/interfaces.d/wlan
+fi

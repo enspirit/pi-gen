@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# CHECK IF WE ARE DEALING WITH RASPERRY PI 4 or 3
+# and generate wifi hotspot config accordingly
+cat /proc/cpuinfo |grep -i "raspberry pi 4" > /dev/null
+if [ $? -eq 0 ]; then
+  export HW_MODE=a
+  export CHANNEL=48
+else
+  export HW_MODE=g
+  export CHANNEL=7
+fi
+
+echo "Easycast hotspot is gonna use mode $HW_MODE and channel $CHANNEL"
+
+envsubst < /etc/hostapd/hostapd.conf.tpl > /etc/hostapd/hostapd.conf

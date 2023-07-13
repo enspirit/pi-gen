@@ -1,0 +1,12 @@
+[Unit]
+Description=Easycast Magic System Configurator
+Before=basic.target
+After=local-fs.target sysinit.target
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/easycast-system-config
+
+[Install]
+WantedBy=basic.target

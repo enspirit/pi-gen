@@ -1,0 +1,13 @@
+[Unit]
+Description=Easycast station configuration
+Wants=network-online.target
+After=multi-user.target
+
+[Service]
+User=root
+Type=oneshot
+ExecStart=/home/easycast/easycast/bin/set-displays-envvar
+EnvironmentFile=/etc/environment
+
+[Install]
+WantedBy=multi-user.target
