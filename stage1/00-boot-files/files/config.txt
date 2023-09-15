@@ -83,3 +83,6 @@ dtoverlay=vc4-fkms-v3d
 max_framebuffers=2
 
 [all]
+disable_splash=1
+dtoverlay=disable-bt
+boot_delay=0
